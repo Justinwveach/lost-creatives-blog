@@ -58,6 +58,10 @@
     column-break-inside: avoid;
     width: 100%;
 }
+
+.Blog-imageItem:hover {
+  cursor: pointer;
+}
 /*
 .Blog p:nth-child(1)::first-letter {
     font-size: 200%;

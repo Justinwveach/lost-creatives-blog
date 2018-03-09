@@ -9,6 +9,7 @@
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
+    "react-image-gallery": "^0.8.7",
     "react-render-html": "^0.6.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1"
@@ -17,15 +18,12 @@
     "start": "REACT_APP_STAGE=dev react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-
     "predeploy": "REACT_APP_STAGE=dev npm run build",
     "deploy": "aws s3 sync build/ s3://lost-creatives-blog-dev",
     "postdeploy": "aws cloudfront create-invalidation --distribution-id E26JPBPCRAGANQ --paths '/*'",
-
     "predeploy:prod": "REACT_APP_STAGE=production npm run build",
     "deploy:prod": "aws s3 sync build/ s3://lost-creatives-blog",
     "postdeploy:prod": "aws cloudfront create-invalidation --distribution-id E3FIDKFKTZL81S --paths '/*' && aws cloudfront create-invalidation --distribution-id E2OXOSDPIRKM68 --paths '/*'",
-
     "eject": "react-scripts eject"
   }
 }

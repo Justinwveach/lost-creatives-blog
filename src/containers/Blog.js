@@ -18,7 +18,7 @@ export default class Blog extends Component {
     };
   }
 
- async componentDidMount() {
+  async componentDidMount() {
     try {
       fetch(`${config.apiURL}/blogs/${this.props.match.params.id}`,
       {
@@ -57,6 +57,9 @@ export default class Blog extends Component {
   }
 
   render() {
+    const goToGallery = () => {
+      this.props.history.push(`/blogs/gallery/${this.props.match.params.id}`);
+    }
 
     return (
       <div className="Blog">
@@ -79,7 +82,7 @@ export default class Blog extends Component {
             this.state.images.map(function(imageSet, i) {
               console.log(imageSet)
 
-              return <img className="Blog-imageItem" alt="" src={imageSet.small} srcSet={createSrcset(imageSet)} key={i}/>;
+              return <img className="Blog-imageItem" alt="" src={imageSet.small} srcSet={createSrcset(imageSet)} key={i} onClick={() => goToGallery()}/>;
             })
           }
         </div>
