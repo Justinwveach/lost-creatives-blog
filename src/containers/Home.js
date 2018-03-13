@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./Home.css";
+import config from "../config";
 
 export default class Home extends Component {
 
   async componentDidMount() {
-    fetch(`https://eafalsk4f4.execute-api.us-east-1.amazonaws.com/prod/blogs`,
+    fetch(`${config.apiURL}/blogs/newest/false/10`,
     {
       method: "get",
       headers: {
@@ -17,11 +18,6 @@ export default class Home extends Component {
 
       this.setState({
       });
-      console.log(data);
-
-      for (var image of data[0].images) {
-        console.log(image);
-      }
     });
   }
 

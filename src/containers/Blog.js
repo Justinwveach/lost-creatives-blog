@@ -3,6 +3,9 @@ import "./Blog.css";
 import renderHTML from 'react-render-html';
 import config from "../config";
 import {createSrcset} from "../util/util.js";
+import BlogImageGallery from "./BlogImageGallery";
+import AboutBlurb from "../components/AboutBlurb";
+import SocialMedia from "../components/SocialMedia";
 
 export default class Blog extends Component {
 
@@ -14,7 +17,8 @@ export default class Blog extends Component {
       title: "",
       subtitle: "",
       content: "",
-      images: []
+      images: [],
+      isViewingGallery: false
     };
   }
 
@@ -59,12 +63,18 @@ export default class Blog extends Component {
   render() {
     const goToGallery = () => {
       this.props.history.push(`/blogs/gallery/${this.props.match.params.id}`);
+      // this.setState({
+      //   isViewingGallery: true
+      // })
     }
 
     return (
       <div className="Blog">
+
         <header className="Blog-header">
-          <img className="Blog-headerImage" src={this.state.mainImage} srcSet={this.state.mainImageSrcset} />
+          <div className="Blog-headerImageContainer">
+            <img className="Blog-headerImage" src={this.state.mainImage} srcSet={this.state.mainImageSrcset} />
+          </div>
           <div className="Blog-headerContent">
             <h1>{this.state.title}</h1>
             <h3>{this.state.subtitle}</h3>
@@ -72,11 +82,26 @@ export default class Blog extends Component {
         </header>
 
         <main className="Blog-content">
-          <div>{renderHTML(this.state.content)}</div>
+          <div className="row">
+            <div className="col col-sm-12 col-md-8 col-lg-9">
+              <div>{renderHTML(this.state.content)}</div>
+            </div>
+            <div className="col col-sm-12 col-md-4 col-lg-3">
+              <div className="row">
+                <div className="col col-sm-12">
+                  <AboutBlurb  />
+                </div>
+                <div className="col col-sm-12">
+                  <SocialMedia />
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
 
         <div className="Blog-imageList Blog-columns-sm Blog-columns-md Blog-columns-lg">
-          { this.state.isLoading ?
+          {
+            this.state.isLoading ?
             <p>Loading...</p>
             :
             this.state.images.map(function(imageSet, i) {
@@ -87,6 +112,12 @@ export default class Blog extends Component {
           }
         </div>
 
+        {
+          this.state.isViewingGallery
+          &&
+            <BlogImageGallery images={this.state.images} />
+
+        }
       </div>
     );
   }

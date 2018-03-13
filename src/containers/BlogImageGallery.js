@@ -16,26 +16,33 @@ export default class BlogImageGallery extends Component {
   }
 
   async componentDidMount() {
-    try {
-      fetch(`${config.apiURL}/blogs/${this.props.match.params.id}`,
-      {
-        method: "get",
-        headers: {
-          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-        }
-      })
-      .then(results => {
-        return results.json();
-      }).then(data => {
-        this.setState({
-          images: this.createImageSets(data.images),
-          isLoading: false
-        });
-        console.log(this.state.images);
+    if (this.props.images) {
+      console.log("Has images");
+      this.setState({
+        images: this.createImageSets(this.props.images),
+        isLoading: false
       });
-    } catch(e) {
+    } else {
+      try {
+        //fetch(`${config.apiURL}/blogs/${this.props.match.params.id}`,
+        fetch(`${config.apiURL}/blogs/${this.props.match.params.id}`,
+        {
+          method: "get",
+          headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+          }
+        })
+        .then(results => {
+          return results.json();
+        }).then(data => {
+          this.setState({
+            images: this.createImageSets(data.images),
+            isLoading: false
+          });
+        });
+      } catch(e) {
 
-    } finally {
+      }
     }
   }
 

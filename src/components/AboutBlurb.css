@@ -1,0 +1,19 @@
+.AboutBlurb {
+  text-align: center;
+  background-color: white
+
+}
+
+.AboutBlurb-image {
+  /*
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.AboutBlurb p {
+  padding: 1rem;
+}

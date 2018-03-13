@@ -1,0 +1,88 @@
+.Footer {
+  background-color: #1d2731;
+}
+
+.Footer-contact {
+  margin-top: 2rem;
+  background-color: #0b3c5d;
+}
+
+.Footer-contactLeft {
+  text-align: center;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.Footer-contactLeft p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.Footer-contactRight {
+  border-left: 1px solid gray;
+}
+
+.Footer-contactForm {
+  border-top: 1px solid gray;
+  padding-top: 30px;
+}
+
+.Footer ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.Footer ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.Footer-contact, .Footer-bottom {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: white;
+}
+
+.Footer-contactForm input[type="submit"] {
+    background-color: white;
+    color: black;
+    background-color: rgba(225, 225, 225, 1.0);
+    font-size: 1.5rem;
+    font-weight: 900;
+    border: 0px;
+    height: 40px;
+    width: 80px;
+    float: right;
+}
+
+.Footer-contactForm input[type="submit"]:hover {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.Footer-links {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 45px;
+}
+
+.Footer-emailContainer {
+  width: 100%;
+  display: flex;
+}
+
+#emailInput {
+  flex: 1;
+  width: 100%;
+  height: 40px;
+  color: black;
+  padding-left: 5px;
+  max-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .Footer-verticalRow {
+    display: flex;  /* make the row a flex container */
+    align-items: center; /* vertically center each flex item in the container */
+  }
+}

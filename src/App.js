@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Routes from "./Routes";
+import Footer from "./containers/Footer";
 
 class App extends Component {
 
@@ -11,8 +12,18 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App container">
-        <Routes />
+      <div className="App">
+        <header></header>
+        <nav className="App-nav">
+
+        </nav>
+
+        <div className="container">
+          <Routes />
+        </div>
+
+        <Footer/>
+
       </div>
     );
   }
